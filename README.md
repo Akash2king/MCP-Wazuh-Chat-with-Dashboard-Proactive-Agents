@@ -1,4 +1,4 @@
-# MCP Server Basic Example
+# MCP AI Chat LangChain Example
 
 A basic implementation of a **Model Context Protocol (MCP)** server that demonstrates core functionality, including tools and resources. This guide will walk you through the steps to initialize, inspect, and integrate the server.
 

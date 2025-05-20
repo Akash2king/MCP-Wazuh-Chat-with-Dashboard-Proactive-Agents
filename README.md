@@ -23,6 +23,12 @@ To initialize the project, navigate to a local folder of your choice and launch 
     uv init mcp-ai-chat-langchain
 ``` 
 
+### Create a virtual environment 
+
+```bash
+    uv venv --python 3.12.0
+```
+
 ### To add a new dependency 
 
 ```bash
@@ -30,6 +36,7 @@ To initialize the project, navigate to a local folder of your choice and launch 
     uv addlangchain-openai
     uv add mcp-use
 ``` 
+This will set up the project directory and install the necessary dependencies.
 
 ### To execute the project
 
@@ -37,4 +44,6 @@ To initialize the project, navigate to a local folder of your choice and launch 
     uv run app.py
 ```
 
-This will set up the project directory and install the necessary dependencies.
+## Resources
+
+- [uv](https://docs.astral.sh/uv/#python-versions)

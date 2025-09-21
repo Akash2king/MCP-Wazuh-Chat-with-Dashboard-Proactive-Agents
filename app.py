@@ -1,5 +1,6 @@
 import streamlit as st
 import asyncio
+import sqlite3
 from agent_module import init_agent, run_agent
 from db_module import *
 from proactive_module import add_proactive_agent, remove_proactive_agent
@@ -7,6 +8,12 @@ from dashboard_module import render_dashboard
 import pandas as pd
 
 st.set_page_config(page_title="MCP Chat", layout="wide")
+
+# Ensure database tables exist on first run
+try:
+    init_db()
+except Exception:
+    pass
 st.title("🤖 MCP + Wazuh Chat with Proactive Agents & History")
 
 # ------------------------------ Session State ------------------------------

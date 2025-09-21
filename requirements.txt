@@ -3,4 +3,4 @@ mcp-use
 langchain-groq
 python-dotenv
 apscheduler
-sqlite3
+pandas

@@ -51,6 +51,7 @@ with tab1:
         save_message("user", prompt)
         with st.chat_message("user"):
             st.markdown(prompt)
+        # Always use max_steps=10 when running the agent
         response = asyncio.run(run_agent(st.session_state.agent, prompt, previous_messages=get_all_messages()))
         save_message("assistant", response)
         st.chat_message("assistant").markdown(response, unsafe_allow_html=True)
@@ -75,6 +76,7 @@ with tab2:
         if not name or not prompt_task:
             st.error("Agent Name and Prompt are required!")
         else:
+            # Always use max_steps=10 for proactive agents
             add_proactive_agent(name, interval, prompt_task, st.session_state.agent)
             st.success(f"Proactive Agent '{name}' added with prompt!")
 

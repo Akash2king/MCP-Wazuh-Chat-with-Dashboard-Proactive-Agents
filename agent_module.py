@@ -33,12 +33,14 @@ def init_agent():
         model=os.getenv("GROQ_MODEL"),
         api_key=os.getenv("GROQ_API_KEY")
     )
-    agent = MCPAgent(llm=llm, client=client)
+    # Set max_steps to 10 for all agent runs
+    agent = MCPAgent(llm=llm, client=client, max_steps=10)
     return agent
 
 async def run_agent(agent, prompt, previous_messages=[]):
     # Include RAG context
     context_prompt = "\n".join([f"{m['role']}: {m['content']}" for m in previous_messages])
     full_prompt = f"{context_prompt}\nUser: {prompt}\nAssistant:"
-    result = await agent.run(full_prompt)
+    # Make sure max_steps is always 10 for each run (if agent.run supports override)
+    result = await agent.run(full_prompt, max_steps=10)
     return result
